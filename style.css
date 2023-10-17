@@ -1,645 +1,535 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito&family=Poppins:wght@100;300;400;500;600&display=swap');
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Shopease</title>
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css">
 
 
-:root{
-    --orange: #ff7800;
-    --black : #130f40;
-    --light-color:  #666;
-    --box-shadow:0 .5rem 1.5rem rgba(0,0,0,.1);
-    --border: .2rem solid rgba(0,0,0,.1);
-    --outline: .1rem solid rgba(0,0,0,.1);
-    --outline-hover: .2rem solid var(--black);
-}
 
+    <link rel="stylesheet" href="">
 
-    .logo {
-        font-size: 20px;
-    }
 
 
 
-
-*{
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none;
-    border: none;
-    text-decoration: none;
-    text-transform: capitalize;
-    transition: all .2s linear;
-}
-html{
-    font-size: 62.5%;
-    overflow-x: hidden;
-    scroll-behavior: smooth;
-    scroll-padding-top: 7rem;
-}
-body{
-    background:#eee;
-}
-
-section{
-    padding: 2rem 9%;
-
-
-}
-
-.heading
-{
-    text-align: center;
-    padding: 2rem 0;
-    padding-bottom: 3rem;
-    font-size: 3.5rem;
-    color: var(--black);
-
-
-}
-.heading span{
-    background: var(--orange);
-    color: #fff;
-    display: inline-block;
-    padding: .5rem 3rem;
-    clip-path: polygon(100% 0, 93% 50%, 100% 99%, 0% 100%, 7% 50%, 0% 0%) ;
-}
-
-
-
-.btn{
-    margin-top: 1rem;
-    display: inline-block;
-    padding: .8rem 3rem;
-    font-size: 1.7rem;
-    border-radius: 0.5rem;
-    border: .2rem solid var(--black);
-    color: var(--light-color);
-    cursor: pointer;
-    background: none;
-
-}
-
-.newbtn{
-    margin-top: 1rem;
-    display: inline-block;
-    padding: .8rem 3rem;
-    font-size: 1.7rem;
-    border-radius: 0.5rem;
-    border: .2rem solid var(--black);
-    color: var(--light-color);
-    cursor: pointer;
-    background: none;
-
-}
-
-
-
-.btn:hover{
-    background: var(--orange);
-    color: #fff;
-}
-.newbtn:hover{
-    background: var(--orange);
-    color: #fff;
-}
-
-.header{
-    position: fixed;
-    top:0; left:0; right:0;
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding:2rem 9%;
-    background : #fff;
-    box-shadow: var(--box-shadow);
-}
-.header.logo{
-
-font-size: 2.5rem;
-font-weight: bolder;
-color : (--black);
-}
-.header .logo i{
-    color: var(--orange);
-
-}
-.header .navbar a{
-    font-size: 1.7rem;
-    margin: 0 1rem;
-    color: var(--black);
-}
-.header .navbar a:hover{
-    color: var(--orange);
-
-}
-.header .icons div{
-    height: 4.5rem;
-    width: 4.5rem;
-    line-height: 4.5rem;
-    border-radius: .5rem;
-    background: #eee;
-    color: var(--black);
-    font-size:2rem;
-    margin-right: .3rem;
-    text-align: center;
-    cursor: pointer;
-
-
-}
-.header .icons div:hover{
-    background: var(--orange);
-    color: #fff;
-
-}
-
-#menu-btn{
-    display: none;
-}
-
-.header .search-form{
-    position: absolute;
-    top: 110%;
-    right: -110%;
-    width: 50rem;
-    height: 4rem;
-    background: #fff;
-    border-radius: 5rem;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    box-shadow: var(--box-shadow);
-
-}
-
-
-.header .search-form.active{
-    right: 2rem;
-    transition: .4s linear;
-
-
-
-
-}
-
-
-
-.header .search-form input{
-    height: 100%;
-    width: 100%;
-    background: none;
-    text-transform: none;
-    font-size: 1.6rem;
-    color: var(--black);
-    padding: 0 1.5rem;
-}
-header .search-form label{
-    font-size: 2.2rem;
-    padding-right: 1.5rem;
-    color: var(--black);
-    cursor: pointer;
-}
-.header .search-form label:hover{
-    color: var(--orange);
-
-}
-
-.header .shopping-cart{
-    position: absolute;
-    top: 110%;
-    right: -110%;
-    padding: 1rem;
-    border-radius: .5rem ;
-    box-shadow: var(--box-shadow);
-    width: 35rem;
-
-    background: #fff;
-}
-.header .shopping-cart.active{
-    right: 2rem;
-    transition: .4s linear;
-
-
-}
-
-.header .shopping-cart .box{
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    position: relative;
-    margin: 1rem 0;
-
-}
-.header .shopping-cart .box img{
-    height: 10rem;
-
-}
-.header .shopping-cart .box .fa-trash{
-    font-size: 2rem;
-    position: absolute;
-    top: 50%; right: 2rem;
-    cursor: pointer;
-    color: var(--light-color);
-    transform: translateY(-50%);
-
-}
-.header .shopping-cart .box .fa-trash:hover{
-    color: var(--orange);
-}
-
-.header .shopping-cart .box .content{
-    color: var(--black);
-    font-size: 1.7rem;
-    padding-bottom: 1rem;
-    }
-.header .shopping-cart .box .content span{
-        color: var(--light-color);
-        font-size: 1.6rem;
-    }
-    .header .shopping-cart .box .content .quantity{
-        padding-left: 1rem;
-
-
-
-    }
-    .header .shopping-cart .total{
-font-size: 2.5rem;
-padding: 1rem 0;
-text-align: center;
-color: var(--black);
-    } 
-
-    .header .shopping-cart .btn{
-        display: block;
-        text-align: center;
-        margin: 1rem;
-
-    }
-
-    .header .login-form{
-        position: absolute;
-        top: 110%; right: -110%;
-        width: 30rem;
-        box-shadow: var(--box-shadow);
-        padding:2rem;
-        border-radius: .5rem;
-        background: #fff;
-        text-align: center;
-    }
-    .header .login-form.active{
-        right: 2rem;
-        transition: .4s linear;
-    }
-
-
-    .header .login-form h3{
-        font-size: 2.5rem;
-        text-transform:uppercase ;
-        color: var(--black);
-
-    }
-
-    .header .login-form .box{
-        width: 100%;
-        margin: .7rem 0;
-        background: #eee;
-        border-radius: .5rem;
-        padding: 1rem;
-        font-size: 1.6rem;
-        color: var(--black);
-        text-transform: none;
-    }
-
-
-    .header .login-form p{
-        font-size: 1.4rem;
-        padding: .5rem 0;
-        color: var(--light-color);
-
-    }
-
-    .header .login-form p a{
-        color: var(--orange);
-        text-decoration: underline;
-    }
-    .home{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: url(./top-view-delicious-fruits-vegetables.jpg) no-repeat;
-        background-position: center;
-        background-size: cover;
-        padding-top: 17rem;
-        padding-bottom: 10rem;
-
-
-    }
-
-    .home .content{
-        text-align: center;
-        width: 60rem;
-
-    }
-    .home .content h3{
-        color: var(--orange);
-        font-size: 3rem;
-    }
-
-    .home .content h3 span{
-        color: var(--orange);
-        
-    }
-
-    .home .content p{
-        color: var(--orange);
-        font-size: 1.7rem;
-        padding: 1rem 0;
-        line-height: 1.8;
-
-
-    }
-    .box img{
-        height: 400px;
-        width: 400px;
-    }
-
-    .features .box-container{
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
-        gap: 1.5rem;
-
-
-    }
-
-    .features .box-container .box{
-        padding: 3rem 2rem;
-        background: #fff;
-        outline: var(--outline);
-        outline-offset: -1rem;
-        text-align: center;
-        box-shadow: var(--box-shadow) ;
-
-    }
-
-    .features .box-container .box:hover{
-        outline: var(--outline-hover);
-        outline-offset: 0rem;
-
-
-    }
-
-.features .box-container .box img{
-    margin: 1rem 0;
-    height: 15rem;
-
-}
-.features .box-container .box h3{
-    font-size: 2.5rem;
-    line-height: 1.8;
-    color: var(--black);
-}
-
-.features .box-container .box p{
-    font-size: 1.5rem;
-    line-height: 1.8;
-    color: var(--light-color);
-    padding:1rem 0 ;
-}
-
-.products .product-slider{
-    padding: 1rem;
-
-}
-
-.products .product-slider:first-child{
-    margin-bottom: 2rem;
+</head>
+<body>
    
-    
-}
-.products .product-slider .box{
-    background: #fff;
-    border-radius: .5rem;
-    text-align: center;
-    padding: 3rem 2rem;
+  <header class="header">
+    <a href="#" class="logo"> <i class="fas fa-shopping-basket" style="font-size: 40px;"></i>Shopease</a>
+   
+    <nav class="navbar">
+        <a href="#home">home</a>
+        <a href="#features">features</a>
+        <a href="#products">products</a>
+        <a href="#categories">categories</a>
+        <a href="#review">review</a>
+        <a href="#blogs">blogs</a>
 
-    outline-offset: -1rem;
-    outline: var(--outline);
-    box-shadow: var(--box-shadow);
-    transition: .2s linear;
-
-    
-}
-.products .product-slider .box:hover{
-    outline-offset: 0rem;
-    outline: var(--outline-hover);
+        
 
 
-    
-    
-}
+        
+    </nav>
 
-.products .product-slider .box img{
+<div class="icons">
+<div class="fas fa-bars" id="menu-btn"></div>
+<div class="fas fa-search" id="search-btn"></div>
+<div class="fas fa-shopping-cart" id="cart-btn"></div>
+<div class="fas fa-user" id="login-btn"></div>
+</div>
 
-    height: 20rem;
-
-    
-    
-}
-.products .product-slider .box h3{
-    font-size: 2.5rem;
-    color: var(--black);
-
-
-    
-    
-}
-
-.products .product-slider .box .price{
-    font-size: 2.5rem;
-    color: var(--black);
-    padding: .5rem 0;
-
-
-
-    
-    
-}
-.products .product-slider .box i{
-    font-size: 1.5rem;
-    color: var(--orange);
-    padding: .5rem 0;
-
-
-    
-}
-
-
-.categories .box-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
-    gap: 1.5rem;
-
-
-}
-
-.categories .box-container .box{
-    padding: 3rem 2rem;
-    border-radius: .5rem;
-    background: #fff;
-    box-shadow: var(--box-shadow);
-    outline: var(--outline);
-    outline-offset: -1rem;
-    text-align: center;
-
-
-
-}
-
-
-.categories .box-container .box:hover{
-    outline: var(--outline-hover);
-    outline-offset: 0rem;
-
-
-
-}
-
-
-.categories .box-container .box img{
-    margin: 1rem 0;
-    height: 15rem;
-
-
-}
-.categories .box-container .box h3{
-    font-size: 2rem;
-    color: var(--black);
-    line-height: 1.8;
-
-}
-
-.categories .box-container .box p{
-    font-size: 1.7rem;
-    color: var(--light-color);
-    line-height: 1.8;
-    padding: 5rem 0;
-
-    
-}
-
-.box img{
-    width: 200px;
-}
-
-.review .review-slider{
-    padding: 1rem;
-
-}
-
-.review .review-slider .box{
-    background: #fff;
-    border-radius: .5rem;
-    text-align: center;
-    padding: 3rem 2rem;
-
-    outline-offset: -1rem;
-    outline: var(--outline);
-    box-shadow: var(--box-shadow);
-    transition: .2s linear;
+<form action="" class="search-form">
+  <input type="search" id="search-swiper-slide swiper-slide box" placeholder="search here...">
+  <label for="search-swiper-slide swiper-slide box" class="fas fa-search"></label>
 
 
 
 
-}
+
+</form>
 
 
-.review .review-slider .box:hover{
-    outline: var(--outline-hover);
-    outline-offset: 0rem;
-}
+<div class="shopping-cart" style="width: 450px;">
+<div class="swiper-slide swiper-slide box">
+  <i class="fas fa-trash"></i>
+<img src="image cart-1.png" alt="">
+<div class="content">
+  <h3>watermelon</h3>
+  <span class="price">$4.99/-</span>
+  <span class="quantity">qty : 1</span>
 
-.review .review-slider .box img{
-    height: 10rem;
-    width: 10rem;
-    border-radius: 50%;
 
-}
-.review .review-slider .box p{
-    padding: 1rem 0;
+</div>
 
-    line-height: 1.8;
-    color: var(--light-color);
-    font-size: 1.5rem;
 
-}
+</div>
+<div class="swiper-slide swiper-slide box">
+  <i class="fas fa-trash"></i>
+<img src="red-onion.jpg" alt="">
+<div class="content">
+  <h3>onion</h3>
+  <span class="price">$4.99/-</span>
+  <span class="quantity">qty : 1</span>
 
-.review .review-slider .box h3{
-    padding-bottom: 5rem ;
-    color: var(--black);
-    font-size: 2.2rem;
-    
-}
-.review .review-slider .box .stars i{
 
-    color: var(--orange);
-    font-size: 1.7rem;
+</div>
+
+
+</div>
+
+<div class="swiper-slide swiper-slide box">
+  <i class="fas fa-trash"></i>
+<img src="raw-chicken-meat.jpg" alt="">
+<div class="content">
+  <h3>chicken</h3>
+  <span class="price">$4.99/-</span>
+  <span class="quantity">qty : 1</span>
+
+
+</div>
+
+
+</div>
+
+<div class="total">total : $19.69/-</div>
+<a href="#" class="btn">check-out</a>
+
+
+
+
+</div>
+
+<form action="" class="login-form">
+<h3>login now</h3>
+<input type="email" placeholder="enter your email" class="swiper-slide swiper-slide box">
+<input type="password" placeholder="your password" class="swiper-slide swiper-slide box">
+<p>forget your password <a href="#">click here</a></p>
+<p>don't have an account <a href="#">create now</a></p>
+<input type="submit" value="login now" class="btn">
+
+</form>
+
+  </header>
+
+  <section class="home" id="home">
+    <div class="content">
+      <h3>fresh and <span>organic</span> products for your</h3>
+      <p>Choose fresh and organic products for a healthier, sustainable lifestyle that promotes well-being and supports the environment.</p> 
+      <a href="#" class="newbtn">shop now</a>
+      <style>.newbtn{
+        color: white;
+      }
+      </style>
+
+    </div>
+
+
+
+
+
+  </section>
+
+
+   <section class="features" id="features">
+    <h1 class="heading"> our <span>features</span></h1>
+    <div class="swiper-slide swiper-slide box-container">
+      <div class="swiper-slide swiper-slide box">
+        <img src="3636719.jpg" alt="">
+        <h3>fresh and organic</h3>
+        <p>Explore a wide range of features, such as convenience, quality, and sustainability, when selecting your fresh and organic products.</p>
+      <a href="#" class="btn">read more</a>
+      
+      </div>
+      <div class="swiper-slide swiper-slide box">
+        <img src="12633.jpg" alt="">
+        <h3>free delivery</h3>
+        <p>Benefit from free delivery on your fresh and organic product orders, making healthy choices even more accessible and convenient.</p>
+      <a href="#" class="btn">read more</a>
+      
+      </div>
+
+      <div class="swiper-slide swiper-slide box">
+        <img src="5910060.jpg" alt="">
+        <h3>easy payments</h3>
+        <p>Enjoy the added convenience of easy payments, ensuring a hassle-free shopping experience for your fresh and organic products.</p>
+      <a href="#" class="btn">read more</a>
+      
+      </div>
+      
+
+
+
+    </div>
+
+
+
+
+  </section>
+  <section class="products" id="products">
+
+    <h1 class="heading">our <span>products</span></h1>
+
+    <div class="swiper product-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide swiper-slide box">
+          <img src="orange-white-white.jpg" alt="">
+          <h3>fresh orange</h3>
+          <div class="price">Rs100 to Rs200</div>
+          <div class="stars">
+            
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            
+          </div>
+          <a href="#" class="btn">add to cart</a>
+
+        </div>
+        <div class="swiper-slide swiper-slide box">
+          <img src="h54k_23pr_230123.jpg" alt="">
+          <h3>fresh onion </h3>
+          <div class="price">Rs100 to Rs200</div>
+          <div class="stars">
+            
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            
+          </div>
+          <a href="#" class="btn">add to cart</a>
+          
+        </div>
+        <div class="swiper-slide swiper-slide box">
+          <img src="70015327_JEMA GER 1629-08.jpg" alt="">
+          <h3>fresh meat</h3>
+          <div class="price">Rs100 to Rs200</div>
+          <div class="stars">
+            
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            
+          </div>
+          <a href="#" class="btn">add to cart</a>
+          
+        </div>
+        <div class="swiper-slide swiper-slide box">
+          <img src="cabbage.png" alt="">
+          <h3>fresh cabbage</h3>
+          <div class="price">Rs100 to Rs200</div>
+          <div class="stars">
+            
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            
+          </div>
+          <a href="#" class="btn">add to cart</a>
+          
+        </div>
+
+
+
+      </div>
+    </div>
+    <div class="swiper product-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide swiper-slide box">
+          <img src="delicious-potatoes-white-background.jpg" alt="">
+          <h3>fresh potatoes</h3>
+          <div class="price">Rs100 to Rs200</div>
+          <div class="stars">
+            
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            
+          </div>
+          <a href="#" class="btn">add to cart</a>
+
+        </div>
+        <div class="swiper-slide swiper-slide box">
+          <img src="11053219_18965810.jpg" alt="">
+          <h3>fresh avocado  </h3>
+          <div class="price">Rs100 to Rs200</div>
+          <div class="stars">
+            
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            
+          </div>
+          <a href="#" class="btn">add to cart</a>
+          
+        </div>
+        <div class="swiper-slide swiper-slide box">
+          <img src="ad6n_nmoo_230123.jpg" alt="">
+          <h3>fresh carrots </h3>
+          <div class="price">Rs100 to Rs200</div>
+          <div class="stars">
+            
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            
+          </div>
+          <a href="#" class="btn">add to cart</a>
+          
+        </div>
+        <div class="swiper-slide swiper-slide box">
+          <img src="lime-table.jpg" alt="">
+          <h3>green lemon </h3>
+          <div class="price">Rs100 to Rs200</div>
+          <div class="stars">
+            
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            
+          </div>
+          <a href="#" class="btn">add to cart</a>
+          
+        </div>
+
+
+
+      </div>
+    </div>
+
 
      
-}
+  </section>
 
-.blogs .box-container{
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
-    gap: 1.5rem;
+    <section class="categories" id="categories">
 
+      <h1 class="heading">product <span>categories</span></h1>
 
-
-}
-.blogs .box-container .box{
-    overflow: hidden;
-    border-radius: .5rem;
-    box-shadow: var(--box-shadow);
-    background: #fff;
-}
-
-.blogs .box-container .box img{
-    height: 25rem;
-    width: 100%;
-    object-fit: cover;
-
-}
-
-.blogs .box-container .box .content{
-    padding: 2rem;
-
-}
-.blogs .box-container .box .content .icons{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom:1.5rem ;
-    margin-bottom: 1rem;
-    border-bottom: var(--border);
-}
-
-.blogs .box-container .box .content .icons a{
-    color: var(--light-color);
-    font-size: 1.5rem;
+      <div class="swiper-slide box-container">
+        <div class="swiper-slide box">
+        <img src="basket-full-vegetables.jpg" alt="">
+        <h3>vegetables</h3>
+        <p>upto 45% off</p>
+        <a href="#" class="btn">shop now</a>
 
 
-}
-.blogs .box-container .box .content .icons a i{
-    color: var(--orange);
-    padding-right: .5rem;
 
-    
 
-}
+      </div>
+      <div class="swiper-slide box">
+        <img src="colorful-fruits-tasty-fresh-ripe-juicy-white-desk.jpg" alt="">
+        <h3>fresh fruits</h3>
+        <p>upto 45% off</p>
+        <a href="#" class="btn">shop now</a>
 
-.blogs .box-container .box .content .icons a:hover{
-    color: var(--light-color);
-    font-size: 1.5rem;
-    
 
-}
 
+
+      </div>
+
+      <div class="swiper-slide box">
+        <img src="3977431_14075.jpg" alt="">
+        <h3>dairy products</h3>
+        <p>upto 45% off</p>
+        <a href="#" class="btn">shop now</a>
+
+
+
+
+      </div>
+
+      <div class="swiper-slide box">
+        <img src="3120594_36134.jpg" alt="">
+        <h3>fresh meat</h3>
+        <p>upto 45% off</p>
+        <a href="#" class="btn">shop now</a>
+
+
+
+
+      </div>
+
+
+ 
+
+
+
+
+      </div>
+
+
+
+
+
+
+
+    </section>
+
+
+
+    <section class="review" id="review">
+
+      <h1 class="heading">customer's <span>review</span></h1>
+
+      <div class="swiper review-slider">
+        <div class="swiper wrapper swiper-slide">
+          <div class="swiper-slide box">
+            <img src="manu .png" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cumque excepturi quaerat officia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea voluptate sint, repellendus animi magni unde laboriosam. Asperiores tenetur ducimus tempora, nihil modi quaerat, nulla vero laborum iusto delectus illo, molestias natus eveniet cum repellat ipsam dolores aliquam laboriosam. Cum minima nulla in eos perspiciatis totam labore, dignissimos odio sit ex impedit fuga! Dolores reprehenderit iure eos aliquam asperiores aliquid qui vero, est sunt expedita reiciendis a nostrum atque eveniet, quas consequuntur natus saepe corporis quae possimus repudiandae eligendi nemo. Aspernatur accusantium sed ratione hic aut. Blanditiis illo reprehenderit eos modi laudantium, doloribus, accusantium rerum, vitae totam laborum corrupti dolore est.</p>
+          <h3>Manu</h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+
+          </div>
+          
+          </div>
+
+          <div class="swiper-slide box">
+            <img src="kshitij.png" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cumque excepturi quaerat Lorem ipsum dolor sit, amet consectetur adipisicing elit. Repellat voluptatibus, cumque suscipit velit tenetur non voluptates vero, sint rem exercitationem, dolorum alias ipsum? Atque suscipit ducimus error repellendus maxime itaque laboriosam labore optio quos sequi quo, hic temporibus a fuga autem maiores, quia eaque. Cupiditate, aperiam accusamus, expedita quod odio deserunt ullam ab deleniti totam dolorem reiciendis sunt quam perspiciatis laudantium, nemo odit! Doloremque, optio minima nesciunt reprehenderit consectetur unde dolore natus iure omnis nobis similique nulla corrupti blanditiis aut ratione cum molestiae commodi iste ad laboriosam magnam. Delectus adipisci sed cum labore. Harum sint non nostrum quisquam saepe doloribus!</p>
+          <h3>Kshitij</h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+
+          </div>
+          
+          </div>
+
+          <div class="swiper-slide box">
+            <img src="atharva.png" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cumque excepturi quaerat officia. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maiores temporibus quia illum consequuntur doloremque eveniet, perferendis nulla, quam corrupti autem ab? Cupiditate ratione consequuntur debitis, vero illo voluptatem est? Pariatur accusamus non voluptas, vel praesentium fugit ex totam eveniet magni quis repellat dolorum id sunt porro sequi. Beatae voluptate esse, corrupti quaerat debitis nulla? Eum reprehenderit reiciendis iste eligendi. Consectetur, quae dolore! Maxime, odit iusto ad voluptate est eius cupiditate reiciendis quam fugiat deserunt, nihil veritatis hic numquam minima praesentium quod nam ab sint saepe aspernatur tempore. Vitae quis laboriosam tenetur alias sapiente praesentium harum eveniet eius, aut, officia error.</p>
+          <h3>Atharva</h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+
+          </div>
+          
+          </div>
+
+          <div class="swiper-slide box">
+            <img src="https://kq-storage.s3.ap-south-1.amazonaws.com/Konfident/Soumya.png" alt="">
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos cumque excepturi quaerat officia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, repudiandae earum! Quasi itaque odit vero, quam perferendis, est inventore maiores laborum ex numquam repudiandae rerum earum dignissimos blanditiis eum. Est tempore ad dignissimos rem in. Modi ab, eligendi voluptatum aliquid deleniti adipisci neque deserunt natus minima id vitae asperiores molestias laudantium magni doloribus fuga sint consectetur dolorum nam officiis dignissimos explicabo aperiam. Aperiam optio quasi sit architecto esse dolorum delectus possimus velit ad saepe dicta assumenda, eos neque voluptas? Ipsa quia sint error voluptatibus distinctio ratione illo harum ipsam labore aliquam nemo commodi culpa, eveniet delectus assumenda omnis at atque. Cum, aspernatur velit nemo dolorem ullam ipsam sunt quidem qui cupiditate, nobis earum maiores fugit ipsa repellat sit illo tempore recusandae debitis quisquam corrupti dolor. Vel ullam eos, dolore magni animi deserunt quos doloremque nulla neque cupiditate repellat dignissimos laudantium. Deserunt dicta iste enim? Impedit deserunt reprehenderit nihil officiis est, atque praesentium ipsum non maxime dolorum autem inventore fugit? Ipsum, aut. Excepturi recusandae aliquid deserunt ratione similique labore ullam, sit quis repellat, tempore nihil eaque sapiente perspiciatis maiores voluptas amet corporis non cupiditate quod dicta eius minus optio? A dicta voluptatibus sed vero fuga laudantium laboriosam. Vel harum saepe deleniti.</p>
+          <h3>Soumya</h3>
+          <div class="stars">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+
+          </div>
+          
+          </div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+
+
+
+
+    </section>
+    <section class="blogs" id="blogs">
+      <h1 class="heading">our <span>blogs</span></h1>
+      <div class="box-container">
+        <div class="box">
+          <img src="fresh-healthy-fruits-straw-basket-generative-ai.jpg" alt="">
+          <div class="content">
+            <div class="icons">
+              <a href="#"><i class="fas fa-user"></i> by user </a>
+              <a href="#"><i class="fas fa-calender"></i> 1st may, 2021</a>
+            </div>
+            <h3>fresh and organic vegitables and fruits</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, ipsum dignissimos.</p>
+          <a href="#" class="btn">read more</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <img src="vegetables-from-basket-wooden-table.jpg" alt="">
+          <div class="content">
+            <div class="icons">
+              <a href="#"><i class="fas fa-user"></i> by user </a>
+              <a href="#"><i class="fas fa-calender"></i> 1st may, 2021</a>
+            </div>
+            <h3>fresh and organic vegitables and fruits</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, ipsum dignissimos.</p>
+          <a href="#" class="btn">read more</a>
+          </div>
+        </div>
+
+        <div class="box">
+          <img src="basket-full-vegetables (1).jpg" alt="">
+          <div class="content">
+            <div class="icons">
+              <a href="#"><i class="fas fa-user"></i> by user </a>
+              <a href="#"><i class="fas fa-calender"></i> 1st may, 2021</a>
+            </div>
+            <h3>fresh and organic vegitables and fruits</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti, ipsum dignissimos.</p>
+          <a href="#" class="btn">read more</a>
+          </div>
+        </div>
+
+
+      </div>
+
+
+
+
+    </section>
+
+  
+
+
+
+
+
+
+
+
+
+  <script src="https://kit.fontawesome.com/e83d89b117.js" crossorigin="anonymous"></script>
+
+  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
