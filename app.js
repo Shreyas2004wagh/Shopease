@@ -34,6 +34,9 @@ cartButton.onclick = () => {
     shoppingCart.forEach(cart => {
         cart.classList.toggle('active');
     });
+    searchForms.forEach(form => {
+        form.classList.remove("active");
+    });
 }
 
 let loginForms = document.querySelectorAll('.login-form');
@@ -42,6 +45,13 @@ document.querySelector('#login-btn').onclick = () => {
     loginForms.forEach((loginForm) => {
         loginForm.classList.toggle('active');
     });
+    searchForms.forEach(form => {
+        form.classList.remove('active');
+    });
+    shoppingCart.forEach(cart => {
+        cart.classList.remove('active');
+    });
+
 }
 
 var swiper= new Swiper(".product-slider",{
@@ -68,5 +78,3 @@ slidesPerView: 3,
 });
 
 
-
-  
